@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const BlogPost = ({ image, title, description }) => {
+const BlogPostCard = ({ id, image, title, description }) => {
   return (
     <div className="min-w-72 ax-w-md mx-auto rounded overflow-hidden shadow-lg">
       <img
@@ -15,21 +16,22 @@ const BlogPost = ({ image, title, description }) => {
         </p>
       </div>
       <div className="px-6 pt-4 pb-2 mb-5">
-        <a
-          href="#"
+        <Link
+          to={`/blog/${id}`}
           className=" text-black font-bold underline hover:text-[#38C798] transition-all duration-200 ease-in-out"
         >
           Read more
-        </a>
+        </Link>
       </div>
     </div>
   );
 };
 
-BlogPost.propTypes = {
+BlogPostCard.propTypes = {
+  id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 
-export default BlogPost;
+export default BlogPostCard;
